@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:37:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/15 17:28:50 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/15 20:29:01 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ t_list *lst_last(t_list *list)
 	while (list && list->next)
 		list = list->next;
 	return (list);
+}
+
+void	lst_add_front(t_list **list, t_list *node)
+{
+	if (!list || !node)
+		return ;
+	node->next = *list;
+	if (*list)
+		(*list)->index = node->index + 1;
+	*list = node;
 }
 
 void	lst_add_back(t_list **list, t_list *node)
