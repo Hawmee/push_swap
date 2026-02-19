@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:37:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/15 20:29:01 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/19 15:44:43 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*lst_new(int value)
 {
 	t_list	*node;
-	
+
 	node = (t_list *)malloc(sizeof(t_list));
 	node->value = value;
 	node->index = 0 ;
@@ -23,7 +23,7 @@ t_list	*lst_new(int value)
 	return (node);
 }
 
-t_list *lst_last(t_list *list)
+t_list	*lst_last(t_list *list)
 {
 	while (list && list->next)
 		list = list->next;
@@ -43,7 +43,7 @@ void	lst_add_front(t_list **list, t_list *node)
 void	lst_add_back(t_list **list, t_list *node)
 {
 	t_list	*last;
-	
+
 	last = lst_last(*list);
 	if (!last)
 		*list = node;

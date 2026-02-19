@@ -1,34 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*   disorder_metric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 19:56:26 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/19 15:45:45 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/19 14:37:28 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/19 14:37:29 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-//mampiakatra an'ilay pile
-void	ft_rotate(t_list **stack)
-{
-	t_list	*first;
-	t_list	*last;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	first = *stack;
-	(*stack) = (*stack)->next;
-	last = lst_last(stack);
-	first->next = NULL;
-	last->next = first;
-}
-
-void	ft_r_rotate(t_list **stack_a, t_list **stack_b)
-{
-	ft_rotate(stack_a);
-	ft_rotate(stack_b);
-}
