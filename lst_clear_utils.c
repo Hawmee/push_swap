@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   lst_clear_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 19:51:40 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/20 16:14:26 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/20 23:30:27 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/20 23:43:18 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **stack, char *act_name)
-{
-	t_list	*sec_node;
+void	lst_clear(t_list **list)
+{	
+	t_list	*temp;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!list)
 		return ;
-	if (act_name)
-		return;
-	sec_node = (*stack)->next;
-	(*stack)->next = sec_node->next;
-	sec_node->next = *stack;
-	*stack = sec_node;
+	while (*list)
+	{
+		temp = *list;
+		*list = (*list)->next;
+		free(temp);
+	}
 }
 
-void	ft_s_swap(t_list **stack_a, t_list **stack_b)
+void	lst_ac_clear(ac_list **list, void (*del)(void*))
 {
-	ft_swap(stack_a, NULL);
-	ft_swap(stack_b, NULL);
+	ac_list	*temp;
+
+	if (!list || !del)
+		return ;
+	while (*list)
+	{
+		temp = *list;
+		*list = (*list)->next;
+		del(temp->name);
+		free(temp);
+	}
 }

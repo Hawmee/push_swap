@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_utils.c                                     :+:      :+:    :+:   */
+/*   ft_act_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 16:37:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/20 23:16:26 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/20 16:15:30 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/20 23:28:32 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*lst_new(int value)
+ac_list	*lst_ac_new(char *name)
 {
-	t_list	*node;
+	ac_list	*node;
 
-	node = (t_list *)malloc(sizeof(t_list));
+	node = (ac_list *)malloc(sizeof(ac_list));
 	if (!node)
 		return (NULL);
-	node->value = value;
-	node->index = 0 ;
+	node->name = name;
 	node->next = NULL ;
 	return (node);
 }
 
-size_t	lst_size(t_list *list)
+size_t	lst_ac_size(ac_list *list)
 {
-	t_list	*node;
+	ac_list	*node;
 	size_t	i;
 
 	node = list;
@@ -40,24 +39,16 @@ size_t	lst_size(t_list *list)
 	return (i);
 }
 
-t_list	*lst_last(t_list *list)
+ac_list	*lst_ac_last(ac_list *list)
 {
 	while (list && list->next)
 		list = list->next;
 	return (list);
 }
 
-void	lst_add_front(t_list **list, t_list *node)
+void	lst_ac_add_back(ac_list **list, ac_list *node)
 {
-	if (!list || !node)
-		return ;
-	node->next = *list;
-	*list = node;
-}
-
-void	lst_add_back(t_list **list, t_list *node)
-{
-	t_list	*last;
+	ac_list	*last;
 
 	if (!node || !list)
 		return ;
@@ -66,6 +57,6 @@ void	lst_add_back(t_list **list, t_list *node)
 		*list = node;
 		return ;
 	}
-	last = lst_last(*list);
+	last = lst_ac_last(*list);
 	last->next = node;
 }
