@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ps_simple_utils.c                               :+:      :+:    :+:   */
+/*   ft_lst_clear_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 15:36:13 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 00:45:41 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/20 23:30:27 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/21 00:46:24 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_index(t_list *list, t_list	*node)
+void	lst_clear(t_list **list)
 {
-	int	i;
+	t_list	*temp;
 
-	if (!node)
-		return (0);
-	i = 0;
-	while (list && list != node)
+	if (!list)
+		return ;
+	while (*list)
 	{
-		list = list->next;
-		i ++;
+		temp = *list;
+		*list = (*list)->next;
+		free(temp);
 	}
-	return (i);
 }
 
-t_list	*find_min(t_list *list)
+void	lst_ac_clear(t_ac_list **list, void (*del)(void*))
 {
-	t_list	*node;
-	t_list	*node_min;
+	t_ac_list	*temp;
 
-	node = list;
-	node_min = list;
-	while (node)
+	if (!list || !del)
+		return ;
+	while (*list)
 	{
-		if (node->next && (node->value > (node->next)->value))
-			node_min = node->next;
-		node = node->next;
+		temp = *list;
+		*list = (*list)->next;
+		del(temp->name);
+		free(temp);
 	}
-	return (node_min);
 }

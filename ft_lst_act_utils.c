@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_act_utils.c                                     :+:      :+:    :+:   */
+/*   ft_lst_act_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 16:15:30 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/20 23:28:32 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/21 00:46:39 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-ac_list	*lst_ac_new(char *name)
+t_ac_list	*lst_ac_new(char *name)
 {
-	ac_list	*node;
+	t_ac_list	*node;
 
-	node = (ac_list *)malloc(sizeof(ac_list));
+	node = (t_ac_list *)malloc(sizeof(t_ac_list));
 	if (!node)
 		return (NULL);
 	node->name = name;
@@ -24,10 +24,10 @@ ac_list	*lst_ac_new(char *name)
 	return (node);
 }
 
-size_t	lst_ac_size(ac_list *list)
+size_t	lst_ac_size(t_ac_list *list)
 {
-	ac_list	*node;
-	size_t	i;
+	t_ac_list	*node;
+	size_t		i;
 
 	node = list;
 	i = 0;
@@ -39,16 +39,16 @@ size_t	lst_ac_size(ac_list *list)
 	return (i);
 }
 
-ac_list	*lst_ac_last(ac_list *list)
+t_ac_list	*lst_ac_last(t_ac_list *list)
 {
 	while (list && list->next)
 		list = list->next;
 	return (list);
 }
 
-void	lst_ac_add_back(ac_list **list, ac_list *node)
+void	lst_ac_add_back(t_ac_list **list, t_ac_list *node)
 {
-	ac_list	*last;
+	t_ac_list	*last;
 
 	if (!node || !list)
 		return ;

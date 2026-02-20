@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_clear_utils.c                                  :+:      :+:    :+:   */
+/*   ft_ps_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 23:30:27 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/20 23:43:18 by varandri         ###   ########.fr       */
+/*   Created: 2026/02/21 00:15:25 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/21 00:46:00 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lst_clear(t_list **list)
-{	
-	t_list	*temp;
-
-	if (!list)
-		return ;
-	while (*list)
-	{
-		temp = *list;
-		*list = (*list)->next;
-		free(temp);
-	}
-}
-
-void	lst_ac_clear(ac_list **list, void (*del)(void*))
+void	new_action(t_ac_list	**list, char *name)
 {
-	ac_list	*temp;
+	t_ac_list	*node;
 
-	if (!list || !del)
+	if (!name)
 		return ;
-	while (*list)
-	{
-		temp = *list;
-		*list = (*list)->next;
-		del(temp->name);
-		free(temp);
-	}
+	node = lst_ac_new(name);
+	if (!node)
+		return ;
+	lst_ac_add_back(list, node);
 }
