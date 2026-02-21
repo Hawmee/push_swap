@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 00:44:21 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/21 08:25:37 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 
 typedef struct s_list
 {
-	int		value;
-	int		index;
-	t_list	*next;
+	int				value;
+	int				index;
+	struct s_list	*next;
 }				t_list;
 
-typedef struct ac_struct
+typedef struct s_ac_list
 {
-	char		*name;
-	t_ac_list	*next;
+	char				*name;
+	struct s_ac_list	*next;
 }				t_ac_list;
 
 t_list		*lst_new(int value);

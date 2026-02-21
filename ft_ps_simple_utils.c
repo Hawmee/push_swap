@@ -6,13 +6,13 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:36:13 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 00:45:41 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/21 08:14:01 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_index(t_list *list, t_list	*node)
+int		find_index(t_list *list, t_list	*node)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ t_list	*find_min(t_list *list)
 	node_min = list;
 	while (node)
 	{
-		if (node->next && (node->value > (node->next)->value))
+		if (node->next && (node->value > node_min->value))
 			node_min = node->next;
 		node = node->next;
 	}
