@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 08:25:37 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/21 08:40:25 by tokyrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_list		*lst_new(int value);
 t_list		*lst_last(t_list *list);
 void		lst_add_back(t_list **list, t_list *node);
 void		lst_add_front(t_list **list, t_list *node);
+size_t		lst_size(t_list *list);
 
 t_ac_list	*lst_ac_new(char *name);
 size_t		lst_ac_size(t_ac_list *list);

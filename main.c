@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:35:35 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 08:27:24 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/21 08:35:46 by tokyrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 int main(int argc, char **argv)
 {
-	if(argv)
-    if (argc < 2)
-    {
-        write(2, "Error\n", 6);
-        return (1);
-    }
-    // rest of program
-    return (0);
+	
+	return (0);
 }
