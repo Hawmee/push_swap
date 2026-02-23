@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:37:19 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/20 23:16:26 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/23 16:34:53 by tokyrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*lst_new(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
-	node->index = 0 ;
+	node->index = -1 ;
 	node->next = NULL ;
 	return (node);
 }

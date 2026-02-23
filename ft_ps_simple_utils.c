@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ps_simple_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:36:13 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 08:14:01 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/23 16:08:13 by tokyrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ t_list	*find_min(t_list *list)
 	node_min = list;
 	while (node)
 	{
-		if (node->next && (node->value > node_min->value))
-			node_min = node->next;
+		if (node->value < node_min->value)
+			node_min = node;
 		node = node->next;
 	}
 	return (node_min);

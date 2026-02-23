@@ -6,7 +6,7 @@
 /*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 08:40:25 by tokyrand         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:33:48 by tokyrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_list
 {
 	int				value;
-	int				index;
+	long			index;
 	struct s_list	*next;
 }				t_list;
 
@@ -57,9 +57,13 @@ void		ft_r_rev_rotate(t_list **stack_a, t_list **stack_b,
 
 int			find_index(t_list *list, t_list	*node);
 t_list		*find_min(t_list *list);
-void		ft_ps_simple(t_list *stack_a, t_list *stack_b);
+void		ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst);
 
+size_t		ft_sqrt(size_t nb);
+void		index_attribution(t_list **stack);
+size_t		ft_range_block(t_list **stack, size_t n_block);
 void		ft_ps_medium(t_list *stack_a, t_list *stack_b);
+
 void		ft_ps_complex(t_list *stack_a, t_list *stack_b);
 void		ft_ps_adaptive(t_list *stack_a, t_list *stack_b);
 
