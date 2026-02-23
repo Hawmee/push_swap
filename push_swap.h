@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
+/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/23 17:33:48 by tokyrand         ###   ########.fr       */
+/*   Updated: 2026/02/24 00:10:17 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,14 @@ void		ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst);
 
 size_t		ft_sqrt(size_t nb);
 void		index_attribution(t_list **stack);
-size_t		ft_range_block(t_list **stack, size_t n_block);
-void		ft_ps_medium(t_list *stack_a, t_list *stack_b);
+t_list		*ft_find_min_index(t_list *list);
+t_list		*ft_find_max_index(t_list *list);
+int			ft_find_node_place(t_list *list, t_list *node);
+size_t		ft_range_block(t_list *stack, size_t n_block);
+t_list		*ft_find_block_element(t_list *stack, size_t range_block);
+void		ft_ps_medium(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst);
 
-void		ft_ps_complex(t_list *stack_a, t_list *stack_b);
+void		ft_ps_complex(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst);
 void		ft_ps_adaptive(t_list *stack_a, t_list *stack_b);
 
 #endif

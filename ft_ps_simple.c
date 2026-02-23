@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ps_simple.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
+/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:12:24 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 12:21:52 by tokyrand         ###   ########.fr       */
+/*   Updated: 2026/02/24 00:45:27 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
