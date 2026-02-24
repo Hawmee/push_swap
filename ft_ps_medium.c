@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:26:58 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 15:12:08 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:14:40 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	push_back(t_list **stack_b, t_list **stack_a, t_ac_list **act_lst)
 		if (node_place <= lst_size(*stack_b) / 2)
 			rotate_up(node_place, stack_b, act_lst);
 		else if (node_place > lst_size(*stack_b) / 2)
-			rotate_down(node_place, stack_b, act_lst);
+			rotate_down((lst_size(*stack_a) - node_place), stack_b, act_lst);
 		ft_push(stack_b, stack_b, act_lst, "pa");
 	}
 }
