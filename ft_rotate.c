@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:56:26 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 00:42:20 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:55:06 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_rotate(t_list **stack, t_ac_list **act_lst, char *act_name)
 		new_action(act_lst, act_name);
 	first = *stack;
 	(*stack) = (*stack)->next;
-	last = lst_last(stack);
+	last = lst_last(*stack);
 	first->next = NULL;
 	last->next = first;
 }

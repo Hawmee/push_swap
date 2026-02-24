@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 14:52:55 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:05:11 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		lst_clear(t_list **list);
 void		lst_ac_clear(t_ac_list **list, void (*del)(void*));
 
 void		new_action(t_ac_list	**list, char *name);
+void		new_list_value(t_list **list, int value);
 
 void		ft_push(t_list **from, t_list **to, t_ac_list **act_lst,
 				char *act_name);

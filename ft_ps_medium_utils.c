@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:44:07 by tokyrand          #+#    #+#             */
-/*   Updated: 2026/02/24 14:48:33 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:54:53 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	index_attribution(t_list **stack)
 size_t	ft_range_block(t_list *stack, size_t n_block)
 {
 	t_list	*list;
-	size_t	*min;
-	size_t	*max;
+	size_t	min;
+	size_t	max;
 	size_t	range;
 
 	if (!stack || !n_block)
