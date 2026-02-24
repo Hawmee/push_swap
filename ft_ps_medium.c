@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:26:58 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 14:15:27 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:54:15 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	push_back(t_list **stack_b, t_list **stack_a, t_ac_list **act_lst)
 	}
 }
 
-void	ft_ps_medium(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst)
+void	ft_ps_medium(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 {
 	size_t	min_index;
 	size_t	rng_block;
@@ -63,11 +63,11 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst)
 	n_block = ft_sqrt(lst_size(*stack_a));
 	while (*stack_a)
 	{
-		while (!((*stack_a)->index >= min_index 
-			&& (*stack_a)->index <= min_index + rng_block))
+		while (!((*stack_a)->index >= min_index
+				&& (*stack_a)->index <= min_index + rng_block))
 			ft_rotate(stack_a, act_lst, "ra");
 		ft_push(stack_a, stack_b, act_lst, "pb");
-		if (stack_b && *stack_b && (*stack_b)->next 
+		if (stack_b && *stack_b && (*stack_b)->next
 			&& (*stack_b)->index < ((*stack_b)->next)->index)
 			ft_swap(stack_b, act_lst, "sb");
 		if (!is_member_block(*stack_a, min_index, rng_block))
@@ -76,7 +76,6 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst)
 	push_back(stack_b, stack_a, act_lst);
 	return ;
 }
-
 
 // void	push_forward(t_list **stack_a, t_list **stack_b
 // 		, t_ac_list **act_lst, size_t rng_block)

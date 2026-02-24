@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ps_simple_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
+/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:36:13 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/23 16:08:13 by tokyrand         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:48:47 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		find_index(t_list *list, t_list	*node)
+int	ft_find_value_place(t_list *list, t_list	*node)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int		find_index(t_list *list, t_list	*node)
 	return (i);
 }
 
-t_list	*find_min(t_list *list)
+t_list	*ft_find_min_value(t_list *list)
 {
 	t_list	*node;
 	t_list	*node_min;
