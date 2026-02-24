@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:26:58 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 14:54:15 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:12:08 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 	size_t	rng_block;
 	size_t	n_block;
 
-	if (!stack_a | !*stack_a)
+	if (!stack_a || !*stack_a)
 		return ;
 	index_attribution(stack_a);
 	min_index = ft_find_min_index(*stack_a)->index;
@@ -66,7 +66,7 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 		while (!((*stack_a)->index >= min_index
 				&& (*stack_a)->index <= min_index + rng_block))
 			ft_rotate(stack_a, act_lst, "ra");
-		ft_push(stack_a, stack_b, act_lst, "pb");
+		ft_push(stack_a, stack_b, act_lst, "pa");
 		if (stack_b && *stack_b && (*stack_b)->next
 			&& (*stack_b)->index < ((*stack_b)->next)->index)
 			ft_swap(stack_b, act_lst, "sb");
@@ -76,32 +76,3 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 	push_back(stack_b, stack_a, act_lst);
 	return ;
 }
-
-// void	push_forward(t_list **stack_a, t_list **stack_b
-// 		, t_ac_list **act_lst, size_t rng_block)
-// {
-// 	t_list	*node;
-// 	size_t	i;
-// 	size_t	min_block;
-// 	size_t	max_block;
-
-// 	node = *stack_a;
-// 	min_block = ft_find_min_index(node);
-// 	max_block = rng_block + min_block;
-// 	i = 0;
-// 	while (node)
-// 	{
-// 		if (ft_find_block_elem(node, min_block, max_block) &&
-// 			((i <= lst_size(*stack_a) / 2 && i <= lst_size(*stack_a) - i) ||
-// 			(i > lst_size(*stack_a) / 2 && i >= lst_size(stack_a) - i)))
-// 		{
-// 			if (i <= lst_size(*stack_a) / 2)
-// 				rotate_up(i, stack_a, act_lst);
-// 			if (i > lst_size(*stack_a) / 2)
-// 				rotate_down(i, stack_a, act_lst);
-// 			push(stack_a, stack_b, act_lst, "pb");	
-// 		}	
-// 		node = node->next;
-// 		i++;
-// 	}	
-// }
