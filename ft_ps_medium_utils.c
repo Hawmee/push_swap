@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:44:07 by tokyrand          #+#    #+#             */
-/*   Updated: 2026/02/23 23:41:37 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:15:20 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ size_t	ft_range_block(t_list *stack, size_t n_block)
 	return (range);
 }
 
-int		ft_find_node_place(t_list *list, t_list *node)
+int	ft_find_node_place(t_list *list, t_list *node)
 {
 	int	i;
 
@@ -69,24 +69,20 @@ int		ft_find_node_place(t_list *list, t_list *node)
 	return (i);
 }
 
-t_list	*ft_find_block_element(t_list *stack, size_t range_block)
+int	is_member_block(t_list *list, size_t min_index, size_t rng_block)
 {
-	size_t	l_size;
-	size_t	b_start;
-	size_t	b_end;
-	t_list	*node_min;
+	t_list	*node;
+	int		i;
 
-	if (!stack)
-		return (NULL);
-	node_min = ft_find_min_index(stack);
-	l_size = lst_size(stack);
-	b_start = node_min->index;
-	b_end = (node_min->index) * range_block;
-	while (stack)
+	if (!list)
+		return (0);
+	node = list;
+	i = 0;
+	while (node)
 	{
-		if (stack->index >= b_start && stack->index <= b_end)
-				return (stack);
-		stack = stack->next;
+		if (node->index >= min_index && node->index <= min_index + rng_block)
+			i ++;
+		node = node->next;
 	}
-	return (NULL);
+	return (i);
 }

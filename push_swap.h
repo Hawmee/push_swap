@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 00:10:17 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:17:51 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_list		*lst_last(t_list *list);
 void		lst_add_back(t_list **list, t_list *node);
 void		lst_add_front(t_list **list, t_list *node);
 size_t		lst_size(t_list *list);
+t_list		*ft_find_min_index(t_list *list);
+t_list		*ft_find_max_index(t_list *list);
 
 t_ac_list	*lst_ac_new(char *name);
 size_t		lst_ac_size(t_ac_list *list);
@@ -44,7 +46,7 @@ void		lst_ac_clear(t_ac_list **list, void (*del)(void*));
 
 void		new_action(t_ac_list	**list, char *name);
 
-void		push(t_list **from, t_list **to, t_ac_list **act_lst,
+void		ft_push(t_list **from, t_list **to, t_ac_list **act_lst,
 				char *act_name);
 void		ft_swap(t_list **stack, t_ac_list **act_lst, char *act_name);
 void		ft_s_swap(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst);
@@ -61,11 +63,9 @@ void		ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst);
 
 size_t		ft_sqrt(size_t nb);
 void		index_attribution(t_list **stack);
-t_list		*ft_find_min_index(t_list *list);
-t_list		*ft_find_max_index(t_list *list);
-int			ft_find_node_place(t_list *list, t_list *node);
 size_t		ft_range_block(t_list *stack, size_t n_block);
-t_list		*ft_find_block_element(t_list *stack, size_t range_block);
+int			ft_find_node_place(t_list *list, t_list *node);
+int			is_member_block(t_list *list, size_t min_index, size_t rng_block);
 void		ft_ps_medium(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst);
 
 void		ft_ps_complex(t_list **stack_a, t_list **stack_b,t_ac_list **act_lst);

@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:12:24 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 00:45:27 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:13:01 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 			rotate_up(min_index, stack_a, act_lst);
 		else if (min_index > size_a / 2 && min_index)
 			rotate_down((size_a - min_index), stack_a, act_lst);
-		push(stack_a, stack_b, act_lst, "pb");
+		ft_push(stack_a, stack_b, act_lst, "pb");
 		size_a--;
 	}
 	if ((*stack_a)->value > ((*stack_a)->next)->value)
 		ft_swap(stack_a, act_lst, "sa");
 	while (*stack_b)
 	{
-		push(stack_b, stack_a, act_lst, "pa");
+		ft_push(stack_b, stack_a, act_lst, "pa");
 	}
 }
