@@ -1,56 +1,62 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 20:35:35 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 17:14:15 by varandri         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "push_swap.h"
-// #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "push_swap.h"  // include your t_list, t_ac_list, ft_ps_medium, etc.
 
-int	main(void)
+void print_list(t_list *head)
 {
-	t_list	*list;
-	t_list	*stack_b;
-	t_ac_list	*act_list;
-	int	i;
+    while (head)
+    {
+        printf("%d ", head->value);
+        head = head->next;
+    }
+    printf("\n");
+}
 
-	i = 0;
-	list = NULL;
-	stack_b = NULL;
-	act_list = NULL;
-	while (i < 5)
-	{
-		new_list_value(&list, i);
-		i ++;
-	}
-	ft_rotate(&list, &act_list, "ra");
-	ft_rotate(&list, &act_list, "ra");
-	ft_swap(&list, &act_list, "sa");
-	ft_push(&list, &stack_b, &act_list, "pa");
-	while (list)
-	{
-		printf("%i", list->value);
-		list = list->next;
-	}
-	printf("\n");
-	ft_rotate(&stack_b, NULL, NULL);
-	while(stack_b)
-	{
-		printf("%i", stack_b->value);
-		stack_b = stack_b->next;
-	}
-	printf("\n");
-	while (act_list)
-	{
-		printf("%s\n", act_list->name);
-		act_list = act_list->next;
-	}	
-	return (0);
+// Optional: check if list is sorted
+int is_sorted(t_list *head)
+{
+    while (head && head->next)
+    {
+        if (head->value > head->next->value)
+            return 0;
+        head = head->next;
+    }
+    return 1;
+}
+
+int main(void)
+{
+    t_list *stack_a = NULL;
+    t_list *stack_b = NULL;
+    t_ac_list *act_lst = NULL; // initialize if your code uses it
+
+    srand(time(NULL));
+
+    // Fill stack_a with 500 random numbers
+    for (int i = 0; i < 100; i++)
+        new_list_value(&stack_a, rand() % 1000); // values 0-999
+
+    printf("Before sorting:\n");
+    // print_list(stack_a); // optional, very long
+
+    // Call your medium sort
+    ft_ps_medium(&stack_a, &stack_b, &act_lst);
+
+    printf("\nAfter sorting:\n");
+    // print_list(stack_a); // optional, very long
+
+    if (is_sorted(stack_a))
+        printf("\n✅ Sorting successful!\n");
+    else
+        printf("\n❌ Sorting failed!\n");
+
+	printf("%i", lst_ac_size(act_lst));
+	// while (act_lst)
+	// {
+	// 	printf("%s\n", act_lst->name);
+	// 	act_lst = act_lst->next;
+	// }
+	
+    return 0;
 }

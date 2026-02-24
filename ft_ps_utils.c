@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 00:15:25 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 17:05:33 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/24 22:24:48 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ t_list	*ft_find_min_index(t_list *list)
 			min = list;
 		list = list->next;
 	}
-	return (NULL);
+	return (min);
 }
