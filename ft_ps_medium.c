@@ -6,29 +6,11 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:26:58 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/26 13:59:02 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 17:34:15 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	rotate_up(size_t counter, t_list **stack, t_ac_list **act_lst)
-{
-	while (counter)
-	{
-		ft_rotate(stack, act_lst, "ra");
-		counter--;
-	}
-}
-
-static void	rotate_down(size_t counter, t_list **stack, t_ac_list **act_lst)
-{
-	while (counter)
-	{
-		ft_rev_rotate(stack, act_lst, "rra");
-		counter--;
-	}
-}
 
 static void	push_back(t_list **stack_b, t_list **stack_a, t_ac_list **act_lst)
 {
@@ -59,6 +41,8 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 	min_index = (ft_find_min_index(*stack_a))->index;
 	rng_block = ft_range_block(*stack_a, ft_sqrt(lst_size(*stack_a)));
 	n_block = ft_sqrt(lst_size(*stack_a));
+	if (lst_size(*stack_a) <= 5)
+		return (ft_ps_few(stack_a, stack_b, act_lst));
 	while (*stack_a)
 	{
 		if (*stack_a && !is_member_block(*stack_a, min_index, rng_block))

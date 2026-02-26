@@ -6,29 +6,11 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:12:24 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/26 14:01:09 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 17:42:52 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	rotate_up(size_t counter, t_list **stack, t_ac_list **act_lst)
-{
-	while (counter)
-	{
-		ft_rotate(stack, act_lst, "ra");
-		counter--;
-	}
-}
-
-static void	rotate_down(size_t counter, t_list **stack, t_ac_list **act_lst)
-{
-	while (counter)
-	{
-		ft_rev_rotate(stack, act_lst, "rra");
-		counter--;
-	}
-}
 
 void	ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 {
@@ -37,21 +19,20 @@ void	ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 	size_t	size_a;
 
 	size_a = lst_size(*stack_a);
+	if (size_a <= 5)
+		return (ft_ps_few(stack_a, stack_b, act_lst));
 	while (size_a > 2)
 	{
 		min = ft_find_min_value(*stack_a);
-		min_index = ft_find_value_place(*stack_a, min);
+		min_index = ft_find_node_place(*stack_a, min);
 		if (min_index <= size_a / 2 && min_index)
 			rotate_up(min_index, stack_a, act_lst);
 		else if (min_index > size_a / 2 && min_index)
 			rotate_down((size_a - min_index), stack_a, act_lst);
-		ft_push(stack_a, stack_b, act_lst, "pb");
+		ft_push(stack_a, stack_b, act_lst, "pa");
 		size_a--;
 	}
-	if ((*stack_a)->value > ((*stack_a)->next)->value)
-		ft_swap(stack_a, act_lst, "sa");
+	ft_ps_few(stack_a, stack_b, act_lst);
 	while (*stack_b)
-	{
 		ft_push(stack_b, stack_a, act_lst, "pa");
-	}
 }

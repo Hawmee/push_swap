@@ -34,29 +34,29 @@ int main(void)
     srand(time(NULL));
 
     // Fill stack_a with 500 random numbers
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 3; i++)
         new_list_value(&stack_a, rand() % 1000); // values 0-999
 
     printf("Before sorting:\n");
-    // print_list(stack_a); // optional, very long
+    print_list(stack_a); // optional, very long
 
     // Call your medium sort
     ft_ps_medium(&stack_a, &stack_b, &act_lst);
 
     printf("\nAfter sorting:\n");
-    // print_list(stack_a); // optional, very long
+    print_list(stack_a); // optional, very long
 
     if (is_sorted(stack_a))
         printf("\n✅ Sorting successful!\n");
     else
-        printf("\n❌ Sorting failed!\n");
+		printf("\n❌ Sorting failed!\n");
 
-	printf("%i", lst_ac_size(act_lst));
-	// while (act_lst)
-	// {
-	// 	printf("%s\n", act_lst->name);
-	// 	act_lst = act_lst->next;
-	// }
+	printf("%zu", lst_ac_size(act_lst));
+	while (act_lst)
+	{
+		printf("%s\n", act_lst->name);
+		act_lst = act_lst->next;
+	}
 	
     return 0;
 }

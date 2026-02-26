@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:44:07 by tokyrand          #+#    #+#             */
-/*   Updated: 2026/02/26 14:00:04 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 17:02:59 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,6 @@ size_t	ft_range_block(t_list *stack, size_t n_block)
 	max = (ft_find_max_index(stack))->index;
 	range = (max - min) / n_block;
 	return (range);
-}
-
-int	ft_find_node_place(t_list *list, t_list *node)
-{
-	int	i;
-
-	if (!node)
-		return (0);
-	i = 0;
-	while (list && list != node)
-	{
-		list = list->next;
-		i ++;
-	}
-	return (i);
 }
 
 int	is_member_block(t_list *list, size_t min_index, size_t rng_block)

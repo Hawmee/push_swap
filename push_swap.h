@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 17:15:14 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 17:43:04 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void		lst_ac_clear(t_ac_list **list, void (*del)(void*));
 
 void		new_action(t_ac_list	**list, char *name);
 void		new_list_value(t_list **list, int value);
+void		rotate_up(size_t counter, t_list **stack, t_ac_list **act_lst);
+void		rotate_down(size_t counter, t_list **stack, t_ac_list **act_lst);
+void		ft_ps_few(t_list **stack_a, t_list **stack_b, t_ac_list **actions);
 
 void		ft_push(t_list **from, t_list **to, t_ac_list **act_lst,
 				char *act_name);
@@ -58,8 +61,8 @@ void		ft_rev_rotate(t_list **stack, t_ac_list **act_lst, char *act_name);
 void		ft_r_rev_rotate(t_list **stack_a, t_list **stack_b,
 				t_ac_list **act_lst);
 
-int			ft_find_value_place(t_list *list, t_list	*node);
 t_list		*ft_find_min_value(t_list *list);
+t_list		*ft_find_max_value(t_list *list);
 void		ft_ps_simple(t_list **stack_a, t_list **stack_b,
 				t_ac_list **act_lst);
 
