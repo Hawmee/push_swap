@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:44:07 by tokyrand          #+#    #+#             */
-/*   Updated: 2026/02/24 23:07:28 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 14:00:04 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	index_attribution(t_list **stack)
 
 size_t	ft_range_block(t_list *stack, size_t n_block)
 {
-	t_list	*list;
 	size_t	min;
 	size_t	max;
 	size_t	range;
@@ -80,7 +79,8 @@ int	is_member_block(t_list *list, size_t min_index, size_t rng_block)
 	i = 0;
 	while (node)
 	{
-		if (node->index >= min_index && node->index <= min_index + rng_block)
+		if (node->index >= (long)min_index
+			&& node->index <= (long)(min_index + rng_block))
 			i ++;
 		node = node->next;
 	}

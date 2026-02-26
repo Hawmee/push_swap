@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:12:24 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 14:48:13 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 14:01:09 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	rotate_down(size_t counter, t_list **stack, t_ac_list **act_lst)
 
 void	ft_ps_simple(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 {
-	int		min_index;
+	size_t	min_index;
 	t_list	*min;
 	size_t	size_a;
 

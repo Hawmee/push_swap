@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:26:58 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 23:08:14 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/26 13:59:02 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	ft_ps_medium(t_list **stack_a, t_list **stack_b, t_ac_list **act_lst)
 	{
 		if (*stack_a && !is_member_block(*stack_a, min_index, rng_block))
 			min_index += rng_block + 1;
-		while (*stack_a && !((*stack_a)->index >= min_index
-				&& (*stack_a)->index <= min_index + rng_block))
+		while (*stack_a && !((*stack_a)->index >= (long)min_index
+				&& (*stack_a)->index <= (long)(min_index + rng_block)))
 			ft_rotate(stack_a, act_lst, "ra");
 		if (!*stack_a)
 			break ;
