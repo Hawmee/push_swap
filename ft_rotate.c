@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokyrand <tokyrand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:56:26 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/24 16:55:06 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/27 23:22:09 by tokyrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//mampiakatra an'ilay pile
 void	ft_rotate(t_list **stack, t_ac_list **act_lst, char *act_name)
 {
 	t_list	*first;
