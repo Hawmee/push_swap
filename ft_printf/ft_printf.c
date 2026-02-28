@@ -6,13 +6,13 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 23:50:02 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/28 00:33:26 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/28 03:04:01 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_flag(int fd, char c,va_list args)
+static int	check_flag(int fd, char c, va_list args)
 {
 	int	count;
 
@@ -36,7 +36,7 @@ int	ft_printf(int fd, char *str, ...)
 	va_list	args;
 	size_t	i;
 	int		count;
-	
+
 	if (!str)
 		return (-1);
 	i = 0;

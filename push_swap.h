@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/27 23:30:38 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/28 02:58:36 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct s_ac_list
 }				t_ac_list;
 
 float		disorder_metric(t_list *stack_a);
+
+size_t		ft_strlen(char *str);
+int			ft_strcmp(char *s1, char *s2);
 
 t_list		*lst_new(int value);
 t_list		*lst_last(t_list *list);
@@ -81,5 +84,8 @@ void		ft_ps_complex(t_list **stack_a, t_list **stack_b,
 				t_ac_list **act_lst);
 
 void		ft_ps_adaptive(t_list *stack_a, t_list *stack_b);
+
+void		ft_benchmark(t_list *stack_a, t_ac_list *actions, int is_adaptive,
+				char	*algo_type);
 
 #endif

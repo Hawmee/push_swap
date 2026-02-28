@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:42:01 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/28 01:47:25 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/28 03:04:17 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_put_float(int fd, float nb)
 	dec = (long)(nb * 100) % 100;
 	len += ft_put_nbr(fd, (int)dec);
 	if (dec < 10)
-		len += ft_put_str(fd,"0");
+		len += ft_put_str(fd, "0");
 	return (len);
 }

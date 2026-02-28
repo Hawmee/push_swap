@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:42:05 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/28 01:32:27 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/28 03:05:05 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_convert(char *nb_str, long nb, int n_len)
 	if (nb < 0)
 	{
 		nb = -nb;
-		nb_str[0] = '-';;
+		nb_str[0] = '-';
 	}
 	while (nb)
 	{
@@ -52,7 +52,7 @@ int	ft_put_nbr(int fd, int nbr)
 	long	nb;
 	int		n_len;
 	char	*nb_str;
-	
+
 	if (!nbr)
 	{
 		write(fd, "0", 1);
@@ -66,5 +66,5 @@ int	ft_put_nbr(int fd, int nbr)
 	ft_convert(nb_str, nb, n_len);
 	nb_str[n_len] = '\0';
 	ft_put_str(fd, nb_str);
-	return(n_len);
+	return (n_len);
 }

@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:42:11 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/28 01:33:01 by varandri         ###   ########.fr       */
+/*   Updated: 2026/02/28 03:04:30 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_put_str(int fd, char *str)
 {
 	int	i;
 
-	if(!str)
+	if (!str)
 		return (ft_put_str(fd, "(null)"));
 	i = 0;
 	while (str[i])

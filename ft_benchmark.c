@@ -1,0 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_benchmark.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/28 01:54:22 by varandri          #+#    #+#             */
+/*   Updated: 2026/02/28 03:05:17 by varandri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "./ft_printf/ft_printf.h"
+#include "push_swap.h"
+
+static int	ft_count_actions(t_ac_list *actions, char *action_name)
+{
+	int	count;
+
+	if (!actions || !action_name)
+		return (0);
+	count = 0;
+	while (actions)
+	{
+		if (!ft_strcmp(action_name, actions->name))
+			count++;
+		actions = actions->next;
+	}
+	return (count);
+}
+
+static void	ft_print_strategy(int is_adaptive, char *algo_type)
+{
+	if (is_adaptive)
+	{
+		ft_printf(2, "Adaptive / ");
+		if (!ft_strcmp(algo_type, "simple"))
+			ft_printf(2, "O(n^2)\n");
+		if (!ft_strcmp(algo_type, "medium"))
+			ft_printf(2, "O(n√n)\n");
+		if (!ft_strcmp(algo_type, "complex"))
+			ft_printf(2, "O(nlogn)\n");
+	}
+	else if (!ft_strcmp(algo_type, "simple"))
+		ft_printf(2, "Simple / O(n^2)\n");
+	else if (!ft_strcmp(algo_type, "medium"))
+		ft_printf(2, "Medium / O(n√n)\n");
+	else if (!ft_strcmp(algo_type, "complex"))
+		ft_printf(2, "Complex / O(nlogn)\n");
+}
+
+void	ft_benchmark(t_list *stack_a, t_ac_list *actions, int is_adaptive,
+			char	*algo_type)
+{
+	if (!stack_a || !actions)
+		return ;
+	ft_printf(2, "[bench] disorder:  	%f\n", disorder_metric(stack_a));
+	ft_printf(2, "[bench] strategy:		");
+	ft_print_strategy(is_adaptive, algo_type);
+	ft_printf(2, "[bench] total_ops:	%i\n", (int)lst_ac_size(actions));
+	ft_printf(2, "[bench] sa:  %i  ", ft_count_actions(actions, "sa"));
+	ft_printf(2, "sb:  %i  ", ft_count_actions(actions, "sb"));
+	ft_printf(2, "pa:  %i  ", ft_count_actions(actions, "pa"));
+	ft_printf(2, "ss:  %i  ", ft_count_actions(actions, "ss"));
+	ft_printf(2, "pb:  %i  \n", ft_count_actions(actions, "pb"));
+	ft_printf(2, "[bench] ra:  %i  ", ft_count_actions(actions, "ra"));
+	ft_printf(2, "rb:  %i  ", ft_count_actions(actions, "rb"));
+	ft_printf(2, "rr:  %i  ", ft_count_actions(actions, "rr"));
+	ft_printf(2, "rra:  %i  ", ft_count_actions(actions, "rra"));
+	ft_printf(2, "rrb:  %i  ", ft_count_actions(actions, "rrb"));
+	ft_printf(2, "rrr:  %i  \n", ft_count_actions(actions, "rrr"));
+}
