@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_clear_utils.c                               :+:      :+:    :+:   */
+/*   ft_lst_utils_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 23:30:27 by varandri          #+#    #+#             */
-/*   Updated: 2026/02/21 00:46:24 by varandri         ###   ########.fr       */
+/*   Updated: 2026/03/05 05:31:23 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,25 @@ void	lst_clear(t_list **list)
 	}
 }
 
-void	lst_ac_clear(t_ac_list **list, void (*del)(void*))
+t_list	*lst_dup(t_list *stack)
 {
-	t_ac_list	*temp;
+	t_list	*new;
+	t_list	*node;
+	t_list	*current;
 
-	if (!list || !del)
-		return ;
-	while (*list)
+	if (!stack)
+		return (NULL);
+	current = stack;
+	while (current)
 	{
-		temp = *list;
-		*list = (*list)->next;
-		del(temp->name);
-		free(temp);
+		node = lst_new(current->value);
+		if (!node)
+		{
+			lst_clear(&new);
+			return (NULL);
+		}
+		lst_add_back(&new, node);
+		current = current->next;
 	}
+	return (new);
 }

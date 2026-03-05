@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_act_utils.c                                 :+:      :+:    :+:   */
+/*   ft_lst_flag_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 16:15:30 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/05 04:18:32 by varandri         ###   ########.fr       */
+/*   Created: 2026/03/05 04:18:56 by varandri          #+#    #+#             */
+/*   Updated: 2026/03/05 04:22:14 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_ac_list	*lst_ac_new(char *name)
+t_flag_list	*lst_flag_new(char *algo_type)
 {
-	t_ac_list	*node;
+	t_flag_list	*node;
 
-	node = (t_ac_list *)malloc(sizeof(t_ac_list));
+	node = (t_flag_list *)malloc(sizeof(t_flag_list));
 	if (!node)
 		return (NULL);
-	node->name = name;
+	node->is_adaptive = 0;
+	node->algo_type = algo_type;
 	node->next = NULL ;
 	return (node);
 }
 
-size_t	lst_ac_size(t_ac_list *list)
+size_t	lst_flag_size(t_flag_list *list)
 {
-	t_ac_list	*node;
+	t_flag_list	*node;
 	size_t		i;
 
 	node = list;
@@ -39,16 +40,16 @@ size_t	lst_ac_size(t_ac_list *list)
 	return (i);
 }
 
-t_ac_list	*lst_ac_last(t_ac_list *list)
+t_flag_list	*lst_flag_last(t_flag_list *list)
 {
 	while (list && list->next)
 		list = list->next;
 	return (list);
 }
 
-void	lst_ac_add_back(t_ac_list **list, t_ac_list *node)
+void	lst_flag_add_back(t_flag_list **list, t_flag_list *node)
 {
-	t_ac_list	*last;
+	t_flag_list	*last;
 
 	if (!node || !list)
 		return ;
@@ -57,13 +58,13 @@ void	lst_ac_add_back(t_ac_list **list, t_ac_list *node)
 		*list = node;
 		return ;
 	}
-	last = lst_ac_last(*list);
+	last = lst_flag_last(*list);
 	last->next = node;
 }
 
-void	lst_ac_clear(t_ac_list **list, void (*del)(void*))
+void	lst_flag_clear(t_flag_list **list, void (*del)(void*))
 {
-	t_ac_list	*temp;
+	t_flag_list	*temp;
 
 	if (!list || !del)
 		return ;
@@ -71,7 +72,7 @@ void	lst_ac_clear(t_ac_list **list, void (*del)(void*))
 	{
 		temp = *list;
 		*list = (*list)->next;
-		del(temp->name);
+		del(temp->algo_type);
 		free(temp);
 	}
 }

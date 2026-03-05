@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 02:47:15 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/05 01:39:22 by varandri         ###   ########.fr       */
+/*   Updated: 2026/03/05 02:49:06 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	ft_free_2d(char **tab)
 	size_t	i;
 
 	i = 0;
-	while (tab[i])
+	while (tab && tab[i])
 	{
 		free(tab[i]);
 		i++;

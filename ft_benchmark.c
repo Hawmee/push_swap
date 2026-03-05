@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 01:54:22 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/05 02:08:11 by varandri         ###   ########.fr       */
+/*   Updated: 2026/03/05 05:36:18 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ static void	ft_print_strategy(int is_adaptive, char *algo_type)
 		ft_printf(2, "Complex / O(nlogn)\n");
 }
 
-void	ft_benchmark(t_list *stack_a, t_ac_list *actions, int is_adaptive,
-			char	*algo_type)
+void	ft_benchmark(float disorder, t_ac_list *actions, t_flag_list *flags)
 {
-	if (!stack_a || !actions)
+	t_flag_list	*last_flag;
+
+	if (!actions || !flags)
 		return ;
-	ft_printf(2, "[bench] disorder:  	%f\n%%", disorder_metric(stack_a));
+	last_flag = lst_flag_last(flags);
+	ft_printf(2, "[bench] disorder:  	%f\n%%", disorder);
 	ft_printf(2, "[bench] strategy:		");
-	ft_print_strategy(is_adaptive, algo_type);
+	ft_print_strategy(last_flag->is_adaptive, last_flag->algo_type);
 	ft_printf(2, "[bench] total_ops:	%i\n", (int)lst_ac_size(actions));
 	ft_printf(2, "[bench] sa:  %i  ", ft_count_actions(actions, "sa"));
 	ft_printf(2, "sb:  %i  ", ft_count_actions(actions, "sb"));

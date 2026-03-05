@@ -6,7 +6,7 @@
 /*   By: varandri <varandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:46:41 by varandri          #+#    #+#             */
-/*   Updated: 2026/03/05 02:08:20 by varandri         ###   ########.fr       */
+/*   Updated: 2026/03/05 05:32:43 by varandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-
 typedef struct s_list
 {
 	int				value;
 	long			index;
 	struct s_list	*next;
-}				t_list;
+}	t_list;
 
 typedef struct s_ac_list
 {
 	char				*name;
 	struct s_ac_list	*next;
-}				t_ac_list;
+}	t_ac_list;
+
+typedef struct s_flag_list
+{
+	int					is_adaptive;
+	char				*algo_type;
+	struct s_flag_list	*next;
+}	t_flag_list;
 
 int			ft_input_verification(char **argv);
 int			ft_parse_input(int argc, char **argv, t_list **stack_a,
@@ -56,6 +62,7 @@ t_list		*lst_last(t_list *list);
 void		lst_add_back(t_list **list, t_list *node);
 void		lst_add_front(t_list **list, t_list *node);
 size_t		lst_size(t_list *list);
+t_list		*lst_dup(t_list *stack);
 t_list		*ft_find_min_index(t_list *list);
 t_list		*ft_find_max_index(t_list *list);
 
@@ -64,11 +71,18 @@ size_t		lst_ac_size(t_ac_list *list);
 t_ac_list	*lst_ac_last(t_ac_list *list);
 void		lst_ac_add_back(t_ac_list **list, t_ac_list *node);
 
+t_flag_list	*lst_flag_new(char *algo_type);
+size_t		lst_flag_size(t_flag_list *list);
+t_flag_list	*lst_flag_last(t_flag_list *list);
+void		lst_flag_add_back(t_flag_list **list, t_flag_list *node);
+
+void		lst_flag_clear(t_flag_list **list, void (*del)(void*));
 void		lst_clear(t_list **list);
 void		lst_ac_clear(t_ac_list **list, void (*del)(void*));
 
 void		new_action(t_ac_list	**list, char *name);
 void		new_list_value(t_list **list, int value);
+void		new_flag(t_flag_list **list, char *algo_type, int is_adaptive);
 void		rotate_up(size_t counter, t_list **stack, t_ac_list **act_lst);
 void		rotate_down(size_t counter, t_list **stack, t_ac_list **act_lst);
 void		ft_ps_few(t_list **stack_a, t_list **stack_b, t_ac_list **actions);
@@ -101,9 +115,16 @@ size_t		ft_max_bit(t_list *stack_a);
 void		ft_ps_complex(t_list **stack_a, t_list **stack_b,
 				t_ac_list **act_lst);
 
-void		ft_ps_adaptive(t_list *stack_a, t_list *stack_b);
+void		ft_ps_adaptive(t_list **stack_a, t_list **stack_b,
+				t_ac_list **act_list, t_flag_list **flags);
 
-void		ft_benchmark(t_list *stack_a, t_ac_list *actions, int is_adaptive,
-				char	*algo_type);
+void		ft_benchmark(float disorder, t_ac_list *actions,
+				t_flag_list *flags);
 
+int			ft_is_complexity_flag(char *str);
+int			ft_is_there_complexity_flag(char **input);
+int			ft_is_there_bench_flag(char **input);
+
+void		push_swap(char **input, t_list **stack_a, t_list **stack_b,
+				t_ac_list **actions);
 #endif
